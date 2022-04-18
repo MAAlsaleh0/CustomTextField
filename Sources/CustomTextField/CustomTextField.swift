@@ -10,20 +10,20 @@ public struct CustomTF: View {
     @State var color : Color?
     @Environment(\.colorScheme) private var colorScheme
     public init(text: Binding<String>, placeholder: String, ImageTF: Image?, isPassword: Bool, StylesType: StylesEnum, KeyboardType: UIKit.UIKeyboardType,color: Color?) {
-        self.text = text
-        self.placeholder = placeholder
-        self.ImageTF = ImageTF
-        self.isPassword = isPassword
-        self.StylesType = StylesType
-        self.KeyboardType = KeyboardType
-        self.color = color
+        self._text = text
+        self._placeholder = State(initialValue:placeholder)
+        self._ImageTF = State(initialValue:ImageTF)
+        self._isPassword = State(initialValue:isPassword)
+        self._StylesType = State(initialValue:StylesType)
+        self._KeyboardType = State(initialValue:KeyboardType)
+        self._color = State(initialValue: color)
     }
     public var body: some View {
         if self.StylesType == .Style1 {
             Style1
         } else if self.StylesType == .Style2 {
             Style2
-        } else if self.StylesType == . Style3 {
+        } else if self.StylesType == .Style3 {
             Style3
         } else if self.StylesType == .Style4 {
             Style4
@@ -33,12 +33,12 @@ public struct CustomTF: View {
         ZStack {
             HStack {
                 if ImageTF != nil {
-                withAnimation(.easeInOut) {
-                    ImageTF
-                        .foregroundColor(self.color == nil ? (self.colorScheme == .light ? Color.black : Color.white) : color)
-                        .scaleEffect(text.isEmpty ? 1 : 1.2)
-                        .animation(.easeInOut)
-                }
+                    withAnimation(.easeInOut) {
+                        ImageTF
+                            .foregroundColor(self.color == nil ? (self.colorScheme == .light ? Color.black : Color.white) : color)
+                            .scaleEffect(text.isEmpty ? 1 : 1.2)
+                            .animation(.easeInOut)
+                    }
                 }
                 if isPassword {
                     SecureField(placeholder , text: $text)
@@ -55,12 +55,12 @@ public struct CustomTF: View {
         ZStack {
             HStack {
                 if ImageTF != nil {
-                withAnimation(.easeInOut) {
-                    ImageTF
-                        .foregroundColor(self.color == nil ? (self.colorScheme == .light ? Color.black : Color.white) : color)
-                        .scaleEffect(text.isEmpty ? 1 : 1.2)
-                        .animation(.easeInOut)
-                }
+                    withAnimation(.easeInOut) {
+                        ImageTF
+                            .foregroundColor(self.color == nil ? (self.colorScheme == .light ? Color.black : Color.white) : color)
+                            .scaleEffect(text.isEmpty ? 1 : 1.2)
+                            .animation(.easeInOut)
+                    }
                 }
                 if isPassword {
                     SecureField(placeholder , text: $text)
@@ -85,12 +85,12 @@ public struct CustomTF: View {
         ZStack {
             HStack {
                 if ImageTF != nil {
-                withAnimation(.easeInOut) {
-                    ImageTF
-                        .foregroundColor(self.color == nil ? (self.colorScheme == .dark ? Color.black : Color.white) : color)
-                        .scaleEffect(text.isEmpty ? 1 : 1.2)
-                        .animation(.easeInOut)
-                }
+                    withAnimation(.easeInOut) {
+                        ImageTF
+                            .foregroundColor(self.color == nil ? (self.colorScheme == .dark ? Color.black : Color.white) : color)
+                            .scaleEffect(text.isEmpty ? 1 : 1.2)
+                            .animation(.easeInOut)
+                    }
                 }
                 if isPassword {
                     SecureField(placeholder , text: $text)
@@ -106,7 +106,7 @@ public struct CustomTF: View {
                         .font(.title2)
                         .foregroundColor(self.color == nil ? (self.colorScheme == .dark ? Color.white : Color.black) : color)
                 }
-
+                
             }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
             ZStack { RoundedRectangle(cornerRadius: 8).stroke((self.color == nil ? (self.colorScheme == .dark ? Color.white : Color.black) : color)!,lineWidth: 2)
                     .shadow(color: ((self.color == nil ? (self.colorScheme == .dark ? Color.white : Color.black) : color)!).opacity(0.4), radius: 5, x: 0, y: 0)
@@ -120,19 +120,19 @@ public struct CustomTF: View {
                     .padding(.leading , 35)
             }.frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
         }.frame(maxWidth:.infinity , minHeight:65, maxHeight: 65)
-
+        
     }
     public var Style4: some View {
         ZStack {
             
             HStack {
                 if ImageTF != nil {
-                withAnimation(.easeInOut) {
-                    ImageTF
-                        .foregroundColor(self.color == nil ? (self.colorScheme == .dark ? Color.black : Color.white) : color)
-                        .scaleEffect(text.isEmpty ? 1 : 1.2)
-                        .animation(.easeInOut)
-                }
+                    withAnimation(.easeInOut) {
+                        ImageTF
+                            .foregroundColor(self.color == nil ? (self.colorScheme == .dark ? Color.black : Color.white) : color)
+                            .scaleEffect(text.isEmpty ? 1 : 1.2)
+                            .animation(.easeInOut)
+                    }
                 }
                 if isPassword {
                     SecureField(placeholder , text: $text)
@@ -148,7 +148,7 @@ public struct CustomTF: View {
                         .font(.title2)
                         .foregroundColor(self.color == nil ? (self.colorScheme == .dark ? Color.white : Color.black) : color)
                 }
-
+                
             }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
             ZStack { RoundedRectangle(cornerRadius: 30).stroke(((self.color == nil ? (self.colorScheme == .dark ? Color.white : Color.black) : color)!),lineWidth: 2)
                     .shadow(color: ((self.color == nil ? (self.colorScheme == .dark ? Color.white : Color.black) : color)!).opacity(0.4), radius: 5, x: 0, y: 0)
@@ -162,7 +162,7 @@ public struct CustomTF: View {
                     .padding(.leading , 35)
             }.frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
         }.frame(maxWidth:.infinity , minHeight:65, maxHeight: 65)
-
+        
     }
 }
 
@@ -172,12 +172,3 @@ public enum StylesEnum {
     case Style3
     case Style4
 }
-
-//struct Styles_Previews : PreviewProvider {
-//    static var previews: some View {
-//        Styles(text: .constant(""), placeholder: "email", ImageTF: Image(systemName: "person"), isPassword: false, StylesType: .Style3)
-//            .previewDevice("iPhone 13 Pro")
-//    }
-//}
-//
-
