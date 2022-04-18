@@ -1,13 +1,13 @@
 import SwiftUI
 
 public struct CustomTF: View {
-    @Binding public var text:String
-    @State   public var placeholder:String
-    @State   public var ImageTF : Image?
-    @State   public var isPassword:Bool
-    @State   public var StylesType:StylesEnum
-    @State   public var KeyboardType : UIKit.UIKeyboardType
-    @State   public var color : Color?
+    @Binding var text:String
+    @State var placeholder:String
+    @State var ImageTF : Image?
+    @State var isPassword:Bool
+    @State var StylesType:StylesEnum
+    @State var KeyboardType : UIKit.UIKeyboardType
+    @State var color : Color?
     @Environment(\.colorScheme) private var colorScheme
     public var body: some View {
         if self.StylesType == .Style1 {
