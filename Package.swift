@@ -4,24 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "CustomTextFieldTests",
-    platforms: [
-    
-        .iOS(.v14)
-    
-    ],
-    products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "CustomTextFieldTests",
-            targets: ["CustomTextFieldTests"]),
-    ],
-    dependencies: [],
-    targets: [
-        .target(
-            name: "CustomTextFieldTests",
-            dependencies: []),
-    ]
+  name: "CustomTextField",
+  platforms: [
+    .iOS(.v14)
+  ],
+  products: [
+    .library(
+        name: "CustomTextField",
+        targets: ["CustomTextField"]),
+  ],
+  dependencies: [
+   ],
+  targets: [
+   .target(
+        name: "CustomTextField",
+        dependencies: []),
+    .testTarget(
+        name: "CustomTextFieldTests",
+        dependencies: ["CustomTextFieldTests"]),
+  ]
 )
-
-
