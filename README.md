@@ -1,4 +1,13 @@
 # CustomTextField
+
+author: [@MAAlsaleh0](https://twitter.com/MAAlsaleh0)
+
+Swift,SwiftUI
+
+## Installation 
+
+To install this package, import `https://github.com/MAAlsaleh0/CustomTextField.git` in SPM. 
+
 ![Simulator_Screen_Shot_iPhone_13_Pro_2022_04_18_at_11_49_32](https://user-images.githubusercontent.com/83658715/163860970-3e0aeea5-6b0d-4af4-893b-89b6b076498a.png)
 
 ```swift 
