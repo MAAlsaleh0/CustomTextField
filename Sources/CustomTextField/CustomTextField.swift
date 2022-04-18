@@ -9,6 +9,15 @@ public struct CustomTF: View {
     @State var KeyboardType : UIKit.UIKeyboardType
     @State var color : Color?
     @Environment(\.colorScheme) private var colorScheme
+    public init(text: Binding<String>, placeholder: String, ImageTF: Image?, isPassword: Bool, StylesType: StylesEnum, KeyboardType: UIKit.UIKeyboardType,color: Color?) {
+        self.text = text
+        self.placeholder = placeholder
+        self.ImageTF = ImageTF
+        self.isPassword = isPassword
+        self.StylesType = StylesType
+        self.KeyboardType = KeyboardType
+        self.color = color
+    }
     public var body: some View {
         if self.StylesType == .Style1 {
             Style1
